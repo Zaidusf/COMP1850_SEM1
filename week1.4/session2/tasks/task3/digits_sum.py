@@ -19,8 +19,11 @@ def digits_sum(number):
     """
     # complete your code here
     # base case
+    if number < 10:
+        return number
 
     # recursive case
+    return (number % 10) + digits_sum(number // 10)
 
 
 # check if correct output is produced
@@ -29,3 +32,22 @@ print(digits_sum(12345))  # Output: 15
 
 
 # Once completed, your next task is to write an equivalent function that uses loops.
+def digits_sum_loop(number):
+    """
+    Calculates the sum of digits of a positive integer using a while loop.
+
+    Args:
+        number (int): The input is a positive integer.
+
+    Returns:
+        int: The sum of the digits of the input integer.
+    """
+    total = 0
+    while number > 0:
+        total += number % 10
+        number //= 10
+    return total
+
+
+print(digits_sum_loop(987))     # Output: 24
+print(digits_sum_loop(12345))   # Output: 15
